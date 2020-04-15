@@ -25,12 +25,19 @@ export function app() {
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
+  // const request = require('request');
+  server.get('/api/**', (req, res) => {
+    console.log('api req', req);
+    // const url = `${'https://d1.miaguila.com'}${req.originalUrl}`;
+    // request(url).pipe(res);
+  });
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
   }));
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
+    console.log('all req', req.originalUrl);
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 

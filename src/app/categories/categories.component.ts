@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-categories',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor() { }
+  category: string;
+  cities: any;
+  constructor(route: ActivatedRoute, private http: HttpClient) {
+    this.category = route.snapshot.paramMap.get('slug');
+  }
 
   ngOnInit(): void {
+    this.http.get('/assets/mocks/cities.json').subscribe(
+      cities => this.cities = cities
+    );
   }
 
 }
