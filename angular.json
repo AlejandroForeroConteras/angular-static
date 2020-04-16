@@ -161,11 +161,7 @@
           "options": {
             "browserTarget": "angular9:build:production",
             "serverTarget": "angular9:server:production",
-            "routes": [
-              "/",
-              "/categories/1",
-              "/categories/2"
-            ]
+            "routes": []
           },
           "configurations": {
             "production": {}

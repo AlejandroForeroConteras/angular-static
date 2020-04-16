@@ -9,15 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CategoriesComponent implements OnInit {
 
-  category: string;
-  cities: any;
+  id: string;
+  todo: any;
   constructor(route: ActivatedRoute, private http: HttpClient) {
-    this.category = route.snapshot.paramMap.get('slug');
+    this.id = route.snapshot.paramMap.get('slug');
   }
 
   ngOnInit(): void {
-    this.http.get('/assets/mocks/cities.json').subscribe(
-      cities => this.cities = cities
+    this.http.get(`https://jsonplaceholder.typicode.com/todos/${this.id}`).subscribe(
+      todo => this.todo = todo
     );
   }
 

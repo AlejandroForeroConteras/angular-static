@@ -11,7 +11,8 @@
     "dev:ssr": "ng run angular9:serve-ssr",
     "serve:ssr": "node dist/angular9/server/main.js",
     "build:ssr": "ng build --prod && ng run angular9:server:production",
-    "prerender": "ng run angular9:prerender"
+    "list-routes": "node ./scripts/list-routes.js",
+    "prerender": "ng run angular9:prerender --routesFile routes.txt"
   },
   "private": true,
   "dependencies": {
@@ -37,9 +38,11 @@
     "@angular/language-service": "~9.1.1",
     "@nguniversal/builders": "^9.1.0",
     "@types/express": "^4.17.0",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "axios": "^0.19.2",
+    "bufferutil": "^4.0.1",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -51,6 +54,9 @@
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
-    "typescript": "~3.7.5"
+    "typescript": "~3.7.5",
+    "utf-8-validate": "^5.0.2",
+    "ws": "^7.2.3",
+    "xhr2": "^0.2.0"
   }
 }
